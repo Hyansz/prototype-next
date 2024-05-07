@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  return (
-    <p>Ini Halaman Utama</p>
-  );
+    return (
+        <p>Ini Halaman Add Data</p>
+    );
 }
