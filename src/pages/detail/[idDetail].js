@@ -20,8 +20,7 @@ export default function Home() {
 
     return (
         <>
-            {dataDetail && <p>Ini Halaman Detail {dataDetail.todo}</p>}
-            {dataDetail && <p>Ini Halaman Detail {dataDetail.todo}</p>}
+            {dataDetail && <p>Ini Halaman Detail: <br/> Todo: {dataDetail.todo} <br/> ID: {dataDetail.id} <br/> Created: {dataDetail.created_at} <br/> Status: {dataDetail.status}</p>}
         </>
     );
 }
