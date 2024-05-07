@@ -23,10 +23,7 @@ export default function Home() {
     const handleSubmit = (event) => {
         event.preventDefault();
         const todo = event.target.todo.value;
-        // const status = event.target.status.checked ? 1 : 0;
-
-        // console.log('todo: ', todo);
-        // console.log('status: ', status);
+        const status = event.target.status.checked ? 1 : 0;
 
         fetch(`/api/update-todo-by-id`, {
             method: 'PUT',
@@ -34,18 +31,16 @@ export default function Home() {
                 'Content-Type': 'application/json', //wajib ada
             },
             body: JSON.stringify({
-                status: isChecked ? 1 : 0,
+                status: status,
                 todo: todo,
                 id: idEdit,
             }),
         })
         .then((res) => res.json())
         .then((data) => {
-            console.log(data);
             alert(data.message);
         })
         .catch((data) => {
-            console.log(data);
             alert('error: ', data.message);
         })
     }
@@ -53,7 +48,6 @@ export default function Home() {
     return (
         <div>
             {!dataDetail && <p>Loading...</p>}
-            {/* {dataDetail && <p>Ini Halaman Edit {dataDetail.todo}</p>} */}
             {dataDetail && (
                 <div>
                     <form onSubmit={handleSubmit}>
@@ -68,7 +62,7 @@ export default function Home() {
                                 name="status" 
                                 value="1"
                                 onChange={(event) => {
-                                    setIsChecked(event.target.checked)
+                                    setIsChecked(event.target.checked);
                                 }} 
                                 checked={isChecked}
                             ></input>
