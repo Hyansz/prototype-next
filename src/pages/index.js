@@ -47,8 +47,16 @@ export default function Home() {
     alert("cek 1")
   }
 
-  const handleDelete = (event) => {
+  const handleDelete = async (id) => {
     alert("delete")
+    const dataBody = JSON.stringify({id});
+    fetch(`/api/delete-todo-by-id`, {
+      method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json', //wajib ada
+        },
+        body: dataBody
+    })
   }
 
   return (
