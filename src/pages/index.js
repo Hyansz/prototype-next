@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const router = useRouter()
-  const [dataDetail, setDetail] = useState();
+  const [showAllData, setShowAllData] = useState();
   
   useEffect(() => {
     fetch(`/api/read-all-todos?status=0`)
@@ -16,10 +16,10 @@ export default function Home() {
         console.log(data);
         if (data.data) {
           console.log(data.data.length ? true : false);
-          setDetail(data.data);
+          setShowAllData(data.data);
           return;
         }
-        setDetail(null);
+        setShowAllData(null);
       })
       .catch((err) => {
         alert("Hubungi saya nek error")
@@ -33,7 +33,7 @@ export default function Home() {
     fetch(`/api/read-all-todos?status=0`)
       .then((res) => res.json())
       .then((data) => {
-        setDetail(data.data);
+        setShowAllData(data.data);
         console.log(data.data);
       })
       .catch((err) => {
@@ -60,7 +60,7 @@ export default function Home() {
     await fetch('/api/read-all-todos?status=0')
       .then((res) => res.json())
       .then((data) => {
-        setDetail(data.data);
+        setShowAllData(data.data);
       })
   }
 
@@ -72,9 +72,9 @@ export default function Home() {
       <button onClick={() => {
         router.push('/add-data')
       }}>Add Data</button>
-      {dataDetail === undefined && <p>Loading...</p>}
-      {dataDetail === null && <p>Data Kosong</p>}
-      {dataDetail && <div>{dataDetail.map((data, index) => {
+      {showAllData === undefined && <p>Loading...</p>}
+      {showAllData === null && <p>Data Kosong</p>}
+      {showAllData && <div>{showAllData.map((data, index) => {
         return (
           <div key={index}>
             {data.id}
