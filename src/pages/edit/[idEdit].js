@@ -15,8 +15,11 @@ export default function Home() {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                setDetail(data.data);
-                setIsChecked(data.data.status === 1)
+                setDetail(data.data ? data.data : null);
+                console.log(data.data);
+                if (data.data) {
+                    setIsChecked(data.data.status === 1)
+                }
             })
     }, [idEdit])
 
@@ -47,7 +50,8 @@ export default function Home() {
 
     return (
         <div>
-            {!dataDetail && <p>Loading...</p>}
+            {!dataDetail === undefined && <p>Loading...</p>}
+            {dataDetail === null && <p>Data Kosong</p>}
             {dataDetail && (
                 <div>
                     <form onSubmit={handleSubmit}>

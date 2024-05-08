@@ -1,0 +1,126 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "prototype-next",
+    "collectionId": "2aae1967-1bc7-4159-bc7c-4fea675d9e81",
+    "dateExported": "2024-05-07T06:35:19.681Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "d670ca96-f30a-4194-848c-f2b2d45340e0",
+            "colId": "2aae1967-1bc7-4159-bc7c-4fea675d9e81",
+            "containerId": "",
+            "name": "add-todo",
+            "url": "http://localhost:3000/api/add-todo",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-04-30T01:32:49.758Z",
+            "modified": "2024-04-30T06:00:51.853Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"todo\": \"Membuat Aplikasi Qur'an\"\n}",
+                "form": []
+            },
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test('test add todo', function() {\r",
+                            "  let data = tc.response.json;\r",
+                            "  expect(tc.response.status).to.equal(200);\r",
+                            "  expect(data).to.have.property('todo');\r",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "7c4ade3e-d8c0-4e2d-a60f-2866edb2af8d",
+            "colId": "2aae1967-1bc7-4159-bc7c-4fea675d9e81",
+            "containerId": "",
+            "name": "delete-todo",
+            "url": "http://localhost:3000/api/delete-todo-by-id",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-04-30T01:33:37.090Z",
+            "modified": "2024-04-30T06:05:45.650Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 1\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "2f06d2d4-51c3-44fa-a0bb-9b0c73834fcc",
+            "colId": "2aae1967-1bc7-4159-bc7c-4fea675d9e81",
+            "containerId": "",
+            "name": "get-todo-by-id",
+            "url": "http://localhost:3000/api/get-todo-by-id?id=2",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-04-30T01:34:48.319Z",
+            "modified": "2024-04-30T06:16:47.450Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "2",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "dc33cda0-4e3b-47bf-afc5-0844703d56bd",
+            "colId": "2aae1967-1bc7-4159-bc7c-4fea675d9e81",
+            "containerId": "",
+            "name": "read-all-todos",
+            "url": "http://localhost:3000/api/read-all-todos?status=1",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-04-30T01:35:23.423Z",
+            "modified": "2024-04-30T06:20:37.987Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "status",
+                    "value": "1",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test('test add todo', function() {\r",
+                            "  let data = tc.response.json;\r",
+                            "  expect(tc.response.status).to.equal(200);\r",
+                            "  expect(data).to.have.property('todo');\r",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "673d973a-7b14-4d44-86ee-e693e570eafb",
+            "colId": "2aae1967-1bc7-4159-bc7c-4fea675d9e81",
+            "containerId": "",
+            "name": "update-all-todo-by-id",
+            "url": "http://localhost:3000/api/update-todo-by-id",
+            "method": "PUT",
+            "sortNum": 70000,
+            "created": "2024-04-30T01:35:58.731Z",
+            "modified": "2024-04-30T06:19:28.101Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"status\": 1,\n  \"id\": 2,\n  \"todo\": \"Membuat Aplikasi Al-Qur'an\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "4PEnaznZimeiTFmjoLzI5RdZyq7wklS0tNkbwvh3f1PuST5Cj3hdP1hw9U1XgeZ4ckFJCWQQ1fU6Ya97vIPoHw"
+}
