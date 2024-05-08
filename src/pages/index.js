@@ -63,6 +63,10 @@ export default function Home() {
     <>
       <button onClick={handleTodo}>0 (belum dikerjakan)</button>
       <button onClick={handleDone}>1 (sudah dikerjakan)</button>
+      <br/>
+      <button onClick={() => {
+        router.push('/add-data')
+      }}>Add Data</button>
       {dataDetail === undefined && <p>Loading...</p>}
       {dataDetail === null && <p>Data Kosong</p>}
       {dataDetail && <div>{dataDetail.map((data, index) => {
