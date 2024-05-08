@@ -47,7 +47,7 @@ export default function Home() {
     alert("cek 1")
   }
 
-  const handleDelete = async (id) => {
+  const handleDelete = (id) => {
     alert("delete")
     const dataBody = JSON.stringify({id});
     fetch(`/api/delete-todo-by-id`, {
@@ -73,7 +73,9 @@ export default function Home() {
             <button onClick={() => {
               router.push(`/edit/${data.id}`)
             }}>edit</button>
-            <button onClick={handleDelete}>hapus</button>
+            <button onClick={() => {
+              handleDelete(data.id)
+            }}>hapus</button>
             <button onClick={() => {
               router.push(`/detail/${data.id}`)
             }}>detail</button>
