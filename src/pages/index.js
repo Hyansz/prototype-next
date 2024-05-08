@@ -16,10 +16,10 @@ export default function Home() {
         console.log(data);
         if (data.data) {
           console.log(data.data.length ? true : false);
-          setDetail(null);
+          setDetail(data.data);
           return;
         }
-        setDetail(data.data);
+        setDetail(null);
       })
       .catch((err) => {
         alert("Hubungi saya nek error")
@@ -47,16 +47,21 @@ export default function Home() {
     alert("cek 1")
   }
 
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
     alert("delete")
     const dataBody = JSON.stringify({id});
-    fetch(`/api/delete-todo-by-id`, {
+    await fetch(`/api/delete-todo-by-id`, {
       method: 'DELETE',
         headers: {
           'Content-Type': 'application/json', //wajib ada
         },
         body: dataBody
     })
+    await fetch('/api/read-all-todos?status=0')
+      .then((res) => res.json())
+      .then((data) => {
+        setDetail(data.data);
+      })
   }
 
   return (
