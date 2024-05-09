@@ -27,6 +27,9 @@ export default function Home() {
             {dataDetail === undefined && <p>Loading...</p>}
             {dataDetail === null && <p>Data Kosong</p>}
             {dataDetail && <p>Ini Halaman Detail: <br/> Todo: {dataDetail.todo} <br/> ID: {dataDetail.id} <br/> Created: {dataDetail.created_at} <br/> Status: {dataDetail.status}</p>}
+            <button onClick={() => {
+                router.push('/')
+            }}>Halaman Utama</button>
         </>
     );
 }

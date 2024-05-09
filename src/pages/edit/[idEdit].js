@@ -73,6 +73,9 @@ export default function Home() {
                         </div>
                         <div>
                             <button type="submit">Update Data</button>
+                            <button onClick={() => {
+                                router.push('/')
+                            }}>Halaman Utama</button>
                         </div>
                     </form>
                 </div>
